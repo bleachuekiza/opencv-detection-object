@@ -2,8 +2,8 @@ import cv2 as cv
 import numpy as np
 
 
-haystack_img = cv.imread('game1.jpg', cv.IMREAD_UNCHANGED)
-needle_img = cv.imread('alret.png', cv.IMREAD_UNCHANGED)
+haystack_img = cv.imread('gae1.jpg', cv.IMREAD_UNCHANGED)
+needle_img = cv.imread('alert.jpg', cv.IMREAD_UNCHANGED)
 
 result = cv.matchTemplate(haystack_img, needle_img, cv.TM_CCOEFF_NORMED)
 
@@ -25,9 +25,9 @@ if max_val >= threshold:
 
     cv.rectangle(haystack_img, top_left, bottom_right, color=(0, 255, 0), thickness=2, lineType=cv.LINE_4)
 
-    # cv.imshow('Result', haystack_img)
-    # cv.waitKey()
-    cv.imwrite('result1.jpg', haystack_img)
+    cv.imshow('Result', haystack_img)
+    cv.waitKey()
+    # cv.imwrite('result1.jpg', haystack_img)
 else:
     print('Needle not found.')
 
